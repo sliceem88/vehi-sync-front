@@ -3,6 +3,9 @@ module.exports = {
       browserDebugInfoInTerminal: true,
     },
     reactCompiler: true,
+    images: {
+        remotePatterns: [new URL('https://via.placeholder.com/400x250?text=No+Image')],
+    },
     async headers() {
         return [
             {
