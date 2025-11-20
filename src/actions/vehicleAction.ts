@@ -1,6 +1,6 @@
 'use server'
 
-import {createVehicle} from "@/lib/queries/vehicle";
+import { createVehicle } from "@/lib/queries/vehicle";
 
 export const createVehicleAction = async (formData: FormData) => {
     const vehicle = await createVehicle(formData)

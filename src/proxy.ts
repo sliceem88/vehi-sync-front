@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 import { auth } from '@/auth';
-import {DEFAULT_LANG_CODE, getUrlWithLang} from "@/lib/helpers/lang";
+import { DEFAULT_LANG_CODE, getUrlWithLang } from "@/lib/helpers/lang";
 
 export default async function proxy(request: NextRequest) {
     const session = await auth();

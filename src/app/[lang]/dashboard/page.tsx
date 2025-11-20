@@ -1,8 +1,7 @@
-import {auth} from "@/auth";
-import {getProfile} from "@/lib/queries/getProfile";
+import { getUser } from "@/lib/queries/user";
 
 export default async function DashboardPage() {
-    const profileData = await getProfile();
+    const profileData = await getUser();
 
     console.log(profileData);
   return (
