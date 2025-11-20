@@ -1,12 +1,10 @@
-// eslint.config.js
 import { defineConfig } from "eslint/config";
 import next from "eslint-config-next";
-import tseslint from "@typescript-eslint/eslint-plugin";
 import tsparser from "@typescript-eslint/parser";
+import simpleImportSort from "eslint-plugin-simple-import-sort";
 
 export default defineConfig([
-    // Next.js recommended rules
-    ...next(),
+    next,
 
     {
         files: ["**/*.{ts,tsx}"],
@@ -17,25 +15,24 @@ export default defineConfig([
             },
         },
         plugins: {
-            "@typescript-eslint": tseslint,
+            "simple-import-sort": simpleImportSort,
         },
         rules: {
             "@typescript-eslint/no-unused-vars": ["warn"],
             "@typescript-eslint/no-explicit-any": "off",
+
+            // now ESLint can find these rules
             "simple-import-sort/imports": "error",
             "simple-import-sort/exports": "error",
+
             "object-curly-spacing": ["error", "always"],
             "react/jsx-curly-spacing": [
                 "error",
-                {
-                    when: "always",
-                    children: true,
-                },
+                { when: "always", children: true },
             ],
         },
     },
 
-    // Global ignores
     {
         ignores: [
             ".next/**",

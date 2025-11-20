@@ -1,11 +1,10 @@
-import type {Metadata} from "next";
-
-import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
 
-import {Providers} from "./providers";
-
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import React from "react";
+
+import { Providers } from "./providers";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -43,10 +42,10 @@ export default function RootLayout({
         <head>
             <link rel="apple-touch-icon" href="/icon-192x192.png" />
         </head>
-        <body className={`${geistSans.variable} ${geistMono.variable}`}>
+        <body className={ `${geistSans.variable} ${geistMono.variable}` }>
         <Providers>
 
-            {children}
+            { children }
         </Providers>
         </body>
         </html>
