@@ -18,18 +18,32 @@ export default defineConfig([
             "simple-import-sort": simpleImportSort,
         },
         rules: {
+            "brace-style": ["error", "stroustrup", { "allowSingleLine": false }],
+            "curly": ["error", "all"],
+            "nonblock-statement-body-position": ["error", "below"],
             "@typescript-eslint/no-unused-vars": ["warn"],
             "@typescript-eslint/no-explicit-any": "off",
-
-            // now ESLint can find these rules
             "simple-import-sort/imports": "error",
             "simple-import-sort/exports": "error",
-
             "object-curly-spacing": ["error", "always"],
             "react/jsx-curly-spacing": [
                 "error",
                 { when: "always", children: true },
             ],
+            "indent": ["error", 4, {
+                "SwitchCase": 1,
+                "VariableDeclarator": "first",
+                "outerIIFEBody": 1,
+                "MemberExpression": 1,
+                "FunctionDeclaration": { "parameters": "first", "body": 1 },
+                "FunctionExpression": { "parameters": "first", "body": 1 },
+                "CallExpression": { "arguments": "first" },
+                "ArrayExpression": "first",
+                "ObjectExpression": "first",
+                "ImportDeclaration": "first",
+                "flatTernaryExpressions": false,
+                "ignoreComments": false
+            }]
         },
     },
 

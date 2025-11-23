@@ -1,14 +1,20 @@
 "use client";
 
+type BeforeInstallPromptEvent = Event & {
+    prompt: () => Promise<void>;
+    userChoice: Promise<{ outcome: "accepted" | "dismissed" }>;
+};
+
 import { useEffect, useState } from "react";
 
 const PwaButton = () => {
-    const [promptEvent, setPromptEvent] = useState(null);
+    const [promptEvent, setPromptEvent] = useState<BeforeInstallPromptEvent | null>(null);
 
     useEffect(() => {
-        const handler = (e) => {
-            e.preventDefault();
-            setPromptEvent(e);
+        const handler = (e: Event) => {
+            const event = e as BeforeInstallPromptEvent;
+            event.preventDefault();
+            setPromptEvent(event);
         };
 
         window.addEventListener("beforeinstallprompt", handler);
@@ -17,7 +23,9 @@ const PwaButton = () => {
     }, []);
 
     const installPWA = () => {
-        if (!promptEvent) return;
+        if (!promptEvent) {
+            return;
+        }
 
         promptEvent.prompt();
         promptEvent.userChoice.finally(() => setPromptEvent(null));
