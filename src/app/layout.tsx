@@ -1,6 +1,6 @@
 import "./globals.css";
 
-import type { Metadata } from "next";
+import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from "next/font/google";
 import React from "react";
 
@@ -17,20 +17,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: 'Next.js PWA',
-    description: 'A Progressive Web App built with Next.js',
-    themeColor: '#000000',
-    viewport: {
-        width: 'device-width',
-        initialScale: 1,
-        maximumScale: 1,
-    },
-    appleWebApp: {
-        capable: true,
-        statusBarStyle: 'default',
-        title: 'NextPWA'
-    }
+    title: "My PWA",
+    description: "A simple PWA",
+    manifest: "/manifest.json",
 };
+
 
 export default function RootLayout({
                                        children,
@@ -39,16 +30,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-        <head>
-            <link rel="apple-touch-icon" href="/icon-192x192.png" />
-        </head>
         <body className={ `${geistSans.variable} ${geistMono.variable}` }>
         <Providers>
-
             { children }
         </Providers>
         </body>
         </html>
-
     );
 }

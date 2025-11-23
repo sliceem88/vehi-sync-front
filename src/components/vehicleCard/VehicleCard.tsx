@@ -11,10 +11,11 @@ const VehicleCard = ({ vehicle }: { vehicle: Vehicle}) => {
         type,
         description,
         additionalInfo,
+        images,
         year,
     } = vehicle;
 
-    const mainImage = "https://via.placeholder.com/400x250?text=No+Image";
+    console.log('###', vehicle);
 
     return (
         <Card className="w-full max-w-sm shadow-md border rounded-xl overflow-hidden">
@@ -24,13 +25,13 @@ const VehicleCard = ({ vehicle }: { vehicle: Vehicle}) => {
                 <p className="text-xs text-gray-400">{ new Date(year).getFullYear() }</p>
             </CardHeader>
 
-            <Image
+            { images?.fileName &&  <Image
                 width={ 200 }
                 height={ 200 }
-                src={ mainImage }
-                alt={ name }
+                src={ images.fileName }
+                alt={ name ?? images.fileName }
                 className="w-full h-48 object-cover"
-            />
+            /> }
 
             <CardBody className="p-4 flex flex-col gap-2">
                 <p className="text-gray-700 text-sm line-clamp-3">{ description }</p>
