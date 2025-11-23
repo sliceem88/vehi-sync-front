@@ -4,7 +4,13 @@ module.exports = {
     },
     reactCompiler: true,
     images: {
-        remotePatterns: [new URL('https://via.placeholder.com/400x250?text=No+Image')],
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "s3.eu-central-003.backblazeb2.com",
+                pathname: "/**",
+            },
+        ],
     },
     async headers() {
         return [
