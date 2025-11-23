@@ -1,6 +1,9 @@
 module.exports = {
     experimental: {
-      browserDebugInfoInTerminal: true,
+        browserDebugInfoInTerminal: true,
+        serverActions: {
+            bodySizeLimit: '5mb',
+        },
     },
     reactCompiler: true,
     images: {

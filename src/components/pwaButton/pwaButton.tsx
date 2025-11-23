@@ -34,7 +34,7 @@ const PwaButton = () => {
     return (
         <button
             onClick={ installPWA }
-            disabled={ !promptEvent }
+            // disabled={ !promptEvent }
             style={ {
                 padding: "10px 20px",
                 background: "#317EFB",
