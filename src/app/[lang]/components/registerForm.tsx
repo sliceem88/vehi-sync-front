@@ -3,13 +3,18 @@ import { CardFooter, CardHeader } from "@heroui/card";
 import { Button, Card, CardBody, Divider, Input, Select, SelectItem } from "@heroui/react";
 import Form from "next/form";
 import React from 'react';
+import { toast } from "sonner";
 
 import { registerAction } from "@/actions/registerAction";
 import { Constant } from "@/types/constants";
 
 const RegisterForm = ({ accountTypes }: { accountTypes: Constant[]}) => {
     const handleRegister = async (formData: FormData) => {
-        await registerAction(formData)
+        const response = await registerAction(formData)
+        
+        if(response) {
+            toast.success("You have successfully registered! Please Login to continue!.")
+        }
     }
     return (
         <Card className='min-w-6/12 m-3'>

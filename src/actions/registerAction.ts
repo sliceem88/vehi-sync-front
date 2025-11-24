@@ -7,8 +7,6 @@ export const registerAction = async (formData: FormData) => {
     const password = formData.get('password')?.toString();
     const type = formData.get('type')?.toString();
 
-    console.log('###', email, password, type);
-
     if (type && password && email) {
         const user = {
             email,

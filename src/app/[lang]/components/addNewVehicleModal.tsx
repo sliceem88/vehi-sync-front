@@ -16,11 +16,12 @@ import React from 'react';
 import { createVehicleAction } from "@/actions/vehicleAction";
 
 const AddNewVehicleModal = () => {
-    const { isOpen, onOpen, onOpenChange } = useDisclosure();
+    const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
     const router = useRouter();
 
     const handleFormAction = async (formData: FormData) => {
         await createVehicleAction(formData)
+        onClose()
         router.refresh()
     }
     return (

@@ -8,3 +8,7 @@ export const createVehicle = async (formData: FormData) => {
 export const getMyVehicles = async () => {
     return await fetcher.get<Vehicle[]>('vehicle/all').json()
 }
+
+export const deleteVehicle = async (vehicleId: string) => {
+    return await fetcher.delete(`vehicle/${vehicleId}`).json();
+}
