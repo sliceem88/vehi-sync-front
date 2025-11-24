@@ -3,6 +3,7 @@ import { Card, CardBody } from "@heroui/react";
 import Image from "next/image";
 import React from 'react';
 
+import DeleteVehicle from "@/components/vehicleCard/deleteVehicle";
 import { Vehicle } from "@/types/vehicle";
 
 const VehicleCard = ({ vehicle }: { vehicle: Vehicle}) => {
@@ -14,11 +15,10 @@ const VehicleCard = ({ vehicle }: { vehicle: Vehicle}) => {
         images,
         year,
     } = vehicle;
-
-    console.log('###', vehicle);
-
+    
     return (
         <Card className="w-full max-w-sm shadow-md border rounded-xl overflow-hidden">
+            <DeleteVehicle vehicleId={ vehicle.id } />
             <CardHeader className="flex flex-col items-start p-4 gap-1 bg-gray-50">
                 <h3 className="text-lg font-semibold text-gray-900">{ name }</h3>
                 <p className="text-sm text-gray-500">{ type }</p>
@@ -38,8 +38,8 @@ const VehicleCard = ({ vehicle }: { vehicle: Vehicle}) => {
 
                 { additionalInfo && (
                     <pre className="text-xs bg-gray-100 p-2 rounded-md overflow-auto max-h-24">
-            { JSON.stringify(additionalInfo, null, 2) }
-          </pre>
+                        { JSON.stringify(additionalInfo, null, 2) }
+                    </pre>
                 ) }
             </CardBody>
         </Card>
