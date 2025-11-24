@@ -20,6 +20,7 @@ const AddNewVehicleModal = () => {
     const router = useRouter();
 
     const handleFormAction = async (formData: FormData) => {
+        console.log('###', formData);
         await createVehicleAction(formData)
         onClose()
         router.refresh()
