@@ -5,8 +5,8 @@ export type Vehicle = {
     description: string;
     images: { fileName: string};
     additionalInfo: any | null;
-    createdAt: string;  // ISO timestamps
+    createdAt: string;
     updatedAt: string;
     userId: string;
-    year: string;       // ISO date string
+    year: string;
 };

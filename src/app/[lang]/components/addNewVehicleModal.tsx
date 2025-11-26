@@ -20,7 +20,7 @@ const AddNewVehicleModal = () => {
     const router = useRouter();
 
     const handleFormAction = async (formData: FormData) => {
-        console.log('###', formData);
+        console.log('BEFORE SENT', formData.get('images'));
         await createVehicleAction(formData)
         onClose()
         router.refresh()
