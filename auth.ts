@@ -2,6 +2,7 @@ import ky from "ky";
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 
+import { getUser } from "@/lib/queries/user";
 import { AuthToken } from "@/types/auth";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
