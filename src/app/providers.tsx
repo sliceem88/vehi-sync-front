@@ -13,7 +13,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
     return (
         <>
             <link rel="manifest" href="/manifest.json" />
-            <meta name="theme-color" content="#317EFB" />
+            <meta name="theme-color" content="#1C2534" />
             <HeroUIProvider>
                 { children }
             </HeroUIProvider>

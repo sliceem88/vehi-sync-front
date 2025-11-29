@@ -18,11 +18,29 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-    title: "My PWA",
-    description: "A simple PWA",
+    title: "Mekko",
+    description: "Mechanics ecosystem - keep, connect, operate",
     manifest: "/manifest.json",
+    icons: {
+        icon: "/icon.png",
+        shortcut: "/favicon.ico",
+        apple: "/apple-touch-icon.png"
+    },
+    appleWebApp: {
+        capable: true,
+        statusBarStyle: "black-translucent"
+    }
 };
 
+export function generateViewport() {
+    return {
+        viewport: {
+            width: "device-width",
+            initialScale: 1,
+        },
+        themeColor: "#1C2534", // Move your themeColor here
+    };
+}
 
 export default function RootLayout({
     children,
