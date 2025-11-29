@@ -16,13 +16,19 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 password: {},
             },
             authorize: async (credentials): Promise<AuthToken> => {
-                const tokenData = await ky.post<AuthToken>(`${process.env.API_SERVICE_URL}/api/user/login`, { json : { email: credentials?.email, password: credentials?.password } }).json();
+                try {
+                    console.log('###', credentials);
+                    const tokenData = await ky.post<AuthToken>(`${process.env.API_SERVICE_URL}/api/user/login`, { json : { email: credentials?.email, password: credentials?.password } }).json();
+                    console.log('###', tokenData);
+                    if (!tokenData?.token) {
+                        throw new Error("Invalid credentials.")
+                    }
 
-                if (!tokenData?.token) {
-                    throw new Error("Invalid credentials.")
+                    return tokenData;
                 }
-
-                return tokenData;
+                catch (e: unknown) {
+                    throw new Error("Invalid credentials." + (e as { message: string}).message)
+                }
             },
         }),
     ],

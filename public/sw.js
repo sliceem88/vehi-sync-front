@@ -1,23 +1,30 @@
-self.addEventListener("install", () => {
-    console.log("Service Worker installed");
+const CACHE_VERSION = process.env.APP_VERSION;
+const STATIC_CACHE = `static-cache-${CACHE_VERSION}`;
+const RUNTIME_CACHE = `runtime-cache-${CACHE_VERSION}`;
+
+self.addEventListener('install', (event) => {
+    event.waitUntil(
+        caches.open(STATIC_CACHE).then(cache => {
+            return cache.addAll([
+                '/',
+                '/favicon.ico',
+                '/manifest.json',
+            ]);
+        })
+    );
+    self.skipWaiting();
 });
 
-self.addEventListener("activate", () => {
-    console.log("Service Worker activated");
-});
-
-self.addEventListener("fetch", (event) => {
-    event.respondWith(
-        caches.match(event.request).then((res) => {
-            return (
-                res ||
-                fetch(event.request).then((response) => {
-                    return caches.open("v1").then((cache) => {
-                        cache.put(event.request, response.clone());
-                        return response;
-                    });
-                })
+self.addEventListener('activate', (event) => {
+    event.waitUntil(
+        caches.keys().then(keys => {
+            return Promise.all(
+                keys
+                    .filter(key => !key.includes(CACHE_VERSION))  // delete older caches
+                    .map(key => caches.delete(key))
             );
         })
     );
+
+    self.clients.claim();
 });
