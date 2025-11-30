@@ -1,7 +1,7 @@
 'use server'
 
 import { actionHandler } from "@/lib/helpers/actionHandler";
-import { assignService, deleteAssignedService, getAllServices } from "@/lib/queries/services";
+import { addMechanicToService, assignService, deleteAssignedService, getAllServices } from "@/lib/queries/services";
 
 export const getAllServicesAction = async () => {
     return await getAllServices();
@@ -12,4 +12,8 @@ export const assignOwnerToServiceAction = async (serviceId: string) => {
 
 export const deleteOwnerToServiceAction = async (serviceId: string) => {
     return actionHandler(async () => await deleteAssignedService(serviceId))
+}
+
+export const addMechanicToServiceAction = async (formData: FormData) => {
+    return actionHandler(async () => await addMechanicToService(formData))
 }
