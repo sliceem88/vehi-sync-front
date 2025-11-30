@@ -51,13 +51,6 @@ const AddNewVehicleModal = () => {
 
                                     <Input
                                         isRequired
-                                        // errorMessage={({validationDetails, validationErrors}) => {
-                                        //     if (validationDetails.typeMismatch) {
-                                        //         return "Please enter a valid email address";
-                                        //     }
-                                        //
-                                        //     return validationErrors;
-                                        // }}
                                         label="Images"
                                         labelPlacement="outside"
                                         name="images"
