@@ -1,12 +1,10 @@
 const CACHE_VERSION = process.env.APP_VERSION;
 const STATIC_CACHE = `static-cache-${CACHE_VERSION}`;
-const RUNTIME_CACHE = `runtime-cache-${CACHE_VERSION}`;
 
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(STATIC_CACHE).then(cache => {
             return cache.addAll([
-                '/',
                 '/favicon.ico',
                 '/manifest.json',
             ]);
@@ -20,7 +18,7 @@ self.addEventListener('activate', (event) => {
         caches.keys().then(keys => {
             return Promise.all(
                 keys
-                    .filter(key => !key.includes(CACHE_VERSION))  // delete older caches
+                    .filter(key => !key.includes(CACHE_VERSION))
                     .map(key => caches.delete(key))
             );
         })

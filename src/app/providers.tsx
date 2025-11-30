@@ -30,7 +30,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
 
     return (
         <>
-            <link rel="manifest" href="/manifest.json" />
+            <link rel="manifest" href="/manifest.json" crossOrigin='use-credentials' />
             <meta name="theme-color" content="#1C2534" />
             <HeroUIProvider>
                 { children }
