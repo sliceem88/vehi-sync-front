@@ -14,6 +14,10 @@ export type BasicUser = {
     updatedAt: string
 }
 
+export type OwnerUserType = {
+    type: UserType.OWNER
+} & BasicUser
+
 export type ServiceUserType = {
     type: UserType.SERVICE
 } & BasicUser
