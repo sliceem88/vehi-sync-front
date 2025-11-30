@@ -1,4 +1,9 @@
+const VERSION = process.env.RENDER_GIT_COMMIT || Date.now().toString();
+
 module.exports = {
+    env: {
+        APP_VERSION: VERSION,
+    },
     experimental: {
         browserDebugInfoInTerminal: true,
         serverActions: {
@@ -43,7 +48,7 @@ module.exports = {
                     },
                     {
                         key: 'Cache-Control',
-                        value: 'no-cache, no-store, must-revalidate',
+                        value: 'no-cache, no-store, must-revalidate, max-age=0',
                     },
                     {
                         key: 'Content-Security-Policy',

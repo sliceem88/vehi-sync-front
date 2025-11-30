@@ -5,8 +5,26 @@ import { useEffect } from "react";
 
 export function Providers({ children }: { children: React.ReactNode }) {
     useEffect(() => {
-        if ("serviceWorker" in navigator) {
-            navigator.serviceWorker.register("/sw.js");
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js').then(reg => {
+                    if (reg.waiting) {
+                        reg.waiting.postMessage({ type: 'SKIP_WAITING' });
+                    }
+
+                    reg.onupdatefound = () => {
+                        const newWorker = reg.installing;
+
+                        if(newWorker) {
+                            newWorker.onstatechange = () => {
+                                if (newWorker.state === 'installed') {
+                                    newWorker.postMessage({ type: 'SKIP_WAITING' });
+                                }
+                            };
+                        }
+                    };
+                });
+            });
         }
     }, []);
 

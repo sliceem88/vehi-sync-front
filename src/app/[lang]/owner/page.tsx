@@ -1,5 +1,8 @@
 import { Card, CardBody } from "@heroui/react";
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 import AddNewVehicleModal from "@/app/[lang]/components/addNewVehicleModal";
 import ServiceDeleteModal from "@/app/[lang]/owner/components/serviceDeleteModal";
 import ServiceSelectModal from "@/app/[lang]/owner/components/serviceSelectModal";
