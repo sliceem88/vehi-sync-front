@@ -6,7 +6,7 @@ export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 export default async function ServicePage() {
-    const userOwners = await getServiceAssignedOwners()
+    const vehicleOwners = await getServiceAssignedOwners()
     
     return (
         <div className="flex justify-center gap-4 xl:gap-6 pt-3 px-4 lg:px-0 flex-wrap xl:flex-nowrap sm:pt-10 max-w-[90rem] mx-auto w-full">
@@ -18,7 +18,7 @@ export default async function ServicePage() {
             <div>
                 <p>Assigned Users</p>
                 <Card>
-                    { userOwners.map((owner) => (<CardBody key={ owner.id }>
+                    { vehicleOwners.map((owner) => (<CardBody key={ owner.id }>
                         { JSON.stringify(owner) }
                     </CardBody>)) }
                 </Card>
