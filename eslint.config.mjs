@@ -18,7 +18,10 @@ export default defineConfig([
             "simple-import-sort": simpleImportSort,
         },
         rules: {
-            "brace-style": ["error", "stroustrup", { "allowSingleLine": false }],
+            "no-multiple-empty-lines": [
+                "error",
+                { "max": 1, "maxEOF": 0, "maxBOF": 0 }
+            ],            "brace-style": ["error", "stroustrup", { "allowSingleLine": false }],
             "curly": ["error", "all"],
             "nonblock-statement-body-position": ["error", "below"],
             "@typescript-eslint/no-unused-vars": ["warn"],
