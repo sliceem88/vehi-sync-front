@@ -1,4 +1,5 @@
 export const DEFAULT_LANG_CODE = 'en';
+export const ALLOWED_LANG_CODES = [DEFAULT_LANG_CODE, 'ru', 'lv'];
 export const getUrlWithLang = (url: string, lang = DEFAULT_LANG_CODE) => `/${lang}${url}`;
 
 // Client function

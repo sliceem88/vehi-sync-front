@@ -1,17 +1,27 @@
+import { Divider } from "@heroui/react";
 import React from 'react';
 
+import { auth } from "@/auth";
 import TopNavigation from "@/components/nav/TopNavigation";
-import Sidebar from "@/components/sidebar/sidebar";
+import QrBarCode from "@/components/qrBarCode/qrBarCode";
 import RegisterSW from "@/components/sw/register-sw";
+import { getUser } from "@/lib/helpers/userType";
 
-const MainLayout = ({ children }: {children: React.ReactNode}) => {
+const MainLayout = async ({ children, params }: {children: React.ReactNode, params: Promise<{lang: string}>}) => {
+    const { lang } = await params;
+    const session = await auth()
+    const user = getUser(session);
+
     return (
         <section className="flex">
-            <Sidebar />
             <RegisterSW />
             <div className="w-full">
-                <TopNavigation />
+                <TopNavigation lang={ lang } user={ user } />
                 { children }
+                <div className='pb-3'>
+                    <Divider className="my-4" />
+                    { user && <QrBarCode fastLink={ user.fastLink }/> }
+                </div>
             </div>
         </section>
     );

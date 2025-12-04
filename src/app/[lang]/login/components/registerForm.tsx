@@ -28,7 +28,7 @@ const RegisterForm = ({ accountTypes }: { accountTypes: Constant[]}) => {
                 <Form id="register_form" action={ handleRegister }>
                     <div className='fields flex gap-3 flex-col'>
                         <Input labelPlacement='outside-top' isRequired={ true } name='email' label="Email" placeholder="Enter your email" type="email" />
-                        <Input labelPlacement='outside-top' isRequired={ true } required name='password' label="Password" placeholder="Enter your password" type="password" minLength={ 8 }  />
+                        <Input labelPlacement='outside-top' isRequired={ true } required name='password' label="Password" placeholder="Enter your password" type="password" minLength={ 8 } />
                         <Select
                             isRequired={ true }
                             name='type'
