@@ -2,7 +2,6 @@ import ky from "ky";
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 
-import { getUser } from "@/lib/queries/user";
 import { AuthToken } from "@/types/auth";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -17,9 +16,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             },
             authorize: async (credentials): Promise<AuthToken> => {
                 try {
-                    console.log('###', credentials);
                     const tokenData = await ky.post<AuthToken>(`${process.env.API_SERVICE_URL}/api/user/login`, { json : { email: credentials?.email, password: credentials?.password } }).json();
-                    console.log('###', tokenData);
+
                     if (!tokenData?.token) {
                         throw new Error("Invalid credentials.")
                     }

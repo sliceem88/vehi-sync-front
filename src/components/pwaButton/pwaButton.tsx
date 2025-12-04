@@ -59,7 +59,6 @@ const PwaButton = () => {
             disabled={ !promptEvent }
         >
             <p>Install Mekko App</p>
-            Mechanics ecosystem - keep, connect, operate
         </button>
     );
 };

@@ -12,6 +12,7 @@ export type BasicUser = {
     deletedAt: string | null
     createdAt: string
     updatedAt: string
+    fastLink: string
 }
 
 export type OwnerUserType = {
@@ -29,4 +30,3 @@ export type OperatorUserType = {
 export type MechanicUserType = {
     type: UserType.SERVICE
 } & BasicUser
-

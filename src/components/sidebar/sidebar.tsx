@@ -1,16 +1,17 @@
+import { Divider } from "@heroui/react";
 import React from 'react';
 
-import { auth } from "@/auth";
-import LogOutButton from "@/components/logoutButton/logOutButton";
+import QrBarCode from "@/components/qrBarCode/qrBarCode";
 
-const Sidebar = async () => {
-    const session = await auth()
-
+// TODO: rename to footer component
+const Sidebar = async ({ fastLink }: {fastLink: string}) => {
     return (
-        <div className='min-h-screen flex flex-col items-center justify-center'>
-            sidebar
-            { session?.user && <LogOutButton/> }
-        </div>
+        <>
+            <Divider className="my-4" />
+            <div className='flex flex-col items-center justify-center pb-2.5'>
+                { fastLink && <QrBarCode fastLink={ fastLink }/> }
+            </div>
+        </>
     );
 };
 

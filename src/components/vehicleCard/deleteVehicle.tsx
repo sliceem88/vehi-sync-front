@@ -12,7 +12,6 @@ const DeleteVehicle = ({ vehicleId }: { vehicleId: string }) => {
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const { clickHandle } = useClickHandle();
 
-
     const handleDeleteClick = async (onClose: () => void) => {
         await clickHandle(() => deleteVehicleAction(vehicleId));
 

@@ -25,7 +25,7 @@ const VehicleCard = ({ vehicle }: { vehicle: Vehicle}) => {
                 <p className="text-xs text-gray-400">{ new Date(year).getFullYear() }</p>
             </CardHeader>
 
-            { images?.fileName &&  <Image
+            { images?.fileName && <Image
                 width={ 200 }
                 height={ 200 }
                 src={ images.fileName }

@@ -1,11 +1,15 @@
 import { Card, CardBody } from "@heroui/react";
 
+import { UserType } from "@/lib/constants";
+import { validUserTypeForPage } from "@/lib/helpers/userType";
 import { getMechanicService } from "@/lib/queries/mechanic";
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 export default async function MechanicPage() {
+    await validUserTypeForPage(UserType.MECHANIC)
+
     const myService = await getMechanicService();
 
     return (

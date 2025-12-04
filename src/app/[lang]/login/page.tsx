@@ -1,13 +1,23 @@
 import { CardFooter, CardHeader } from "@heroui/card";
 import { Button, Card, CardBody, Divider, Input } from "@heroui/react";
 import Form from "next/form";
+import { redirect } from "next/navigation";
 import React from 'react';
 
-import RegisterForm from "@/app/[lang]/components/registerForm";
-import { signIn } from "@/auth";
+import RegisterForm from "@/app/[lang]/login/components/registerForm";
+import { auth, signIn } from "@/auth";
+import { getUserType } from "@/lib/helpers/userType";
 import { getAccountTypes } from "@/lib/queries/constant";
 
 const LoginPage = async () => {
+    const session = await auth()
+
+    if(session) {
+        // @ts-ignore
+        const userType = getUserType(session);
+        redirect(`${userType}`)
+    }
+
     const accountTypes = await getAccountTypes();
 
     return (

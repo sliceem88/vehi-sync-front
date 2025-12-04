@@ -2,6 +2,7 @@ import { defineConfig } from "eslint/config";
 import next from "eslint-config-next";
 import tsparser from "@typescript-eslint/parser";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
+import unusedImports from "eslint-plugin-unused-imports";
 
 export default defineConfig([
     next,
@@ -16,8 +17,10 @@ export default defineConfig([
         },
         plugins: {
             "simple-import-sort": simpleImportSort,
+            "unused-imports": unusedImports,
         },
         rules: {
+            "no-multi-spaces": ["error"],
             "no-multiple-empty-lines": [
                 "error",
                 { "max": 1, "maxEOF": 0, "maxBOF": 0 }
@@ -29,6 +32,7 @@ export default defineConfig([
             "simple-import-sort/imports": "error",
             "simple-import-sort/exports": "error",
             "object-curly-spacing": ["error", "always"],
+            "react/jsx-newline": ["error", { "prevent": true }],
             "react/jsx-curly-spacing": [
                 "error",
                 { when: "always", children: true },
@@ -46,7 +50,12 @@ export default defineConfig([
                 "ImportDeclaration": "first",
                 "flatTernaryExpressions": false,
                 "ignoreComments": false
-            }]
+            }],
+            "unused-imports/no-unused-imports": "error",
+            "unused-imports/no-unused-vars": [
+                "warn",
+                { vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" },
+            ],
         },
     },
 

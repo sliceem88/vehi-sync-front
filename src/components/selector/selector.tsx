@@ -3,7 +3,7 @@
 import { Select, SelectItem } from "@heroui/react";
 import React from 'react';
 
-const Selector = ({ items }: {items:  Iterable<{ key: string, label: string|number }>}) => {
+const Selector = ({ items }: {items: Iterable<{ key: string, label: string|number }>}) => {
     return (
         <Select
             className="max-w-xs"

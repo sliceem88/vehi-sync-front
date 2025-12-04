@@ -3,7 +3,6 @@
 import { Accordion, AccordionItem, ScrollShadow } from "@heroui/react";
 import React from 'react';
 
-import ServiceSelectModal from "@/app/[lang]/owner/components/serviceSelectModal";
 import { ServiceUserType } from "@/types/user";
 
 const Services = ({ services, title, modal }: {services: ServiceUserType[], title: string, modal: React.ComponentType<{ service: ServiceUserType }>}) => {
