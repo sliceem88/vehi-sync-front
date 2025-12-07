@@ -1,0 +1,7 @@
+{
+  "page": "Connect page",
+  "content": {
+    "connectRequestText": "Do you want to connect this user {{email}} - {{type}} ?",
+    "alreadyConnectedText": "You are already connected, please see your dashboard."
+  }
+}
