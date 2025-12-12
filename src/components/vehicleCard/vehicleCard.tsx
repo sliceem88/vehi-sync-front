@@ -24,7 +24,6 @@ const VehicleCard = ({ vehicle }: { vehicle: Vehicle}) => {
                 <p className="text-sm text-gray-500">{ type }</p>
                 <p className="text-xs text-gray-400">{ new Date(year).getFullYear() }</p>
             </CardHeader>
-
             { images?.fileName && <Image
                 width={ 200 }
                 height={ 200 }
@@ -32,10 +31,8 @@ const VehicleCard = ({ vehicle }: { vehicle: Vehicle}) => {
                 alt={ name ?? images.fileName }
                 className="w-full h-48 object-cover"
             /> }
-
             <CardBody className="p-4 flex flex-col gap-2">
                 <p className="text-gray-700 text-sm line-clamp-3">{ description }</p>
-
                 { additionalInfo && (
                     <pre className="text-xs bg-gray-100 p-2 rounded-md overflow-auto max-h-24">
                         { JSON.stringify(additionalInfo, null, 2) }
