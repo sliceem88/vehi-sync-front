@@ -1,0 +1,12 @@
+{
+  "page": "general",
+  "content": {
+    "menu": {
+      "services": "Services",
+      "vehicles": "Vehicles",
+      "mechanics": "Mechanics",
+      "operators": "Operators",
+      "owners": "Owners"
+    }
+  }
+}
