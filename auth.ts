@@ -32,7 +32,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     ],
     callbacks:{
         async session({ token }) {
-            console.log('###', token);
             // @ts-ignore
             return token.token!.user;
         },

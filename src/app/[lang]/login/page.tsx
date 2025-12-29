@@ -7,7 +7,7 @@ import React from 'react';
 import RegisterForm from "@/app/[lang]/login/components/registerForm";
 import { auth, signIn } from "@/auth";
 import { getUserType } from "@/lib/helpers/userType";
-import { getAccountTypes } from "@/lib/queries/constant";
+import { getConstants } from "@/lib/queries/constant";
 
 const LoginPage = async () => {
     const session = await auth()
@@ -18,7 +18,7 @@ const LoginPage = async () => {
         redirect(`${userType}`)
     }
 
-    const accountTypes = await getAccountTypes();
+    const { accountTypes } = await getConstants();
 
     return (
         <div className="flex min-h-screen w-full items-center justify-center bg-gray-50">

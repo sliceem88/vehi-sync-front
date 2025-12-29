@@ -12,3 +12,7 @@ export const getMyVehicles = async () => {
 export const deleteVehicle = async (vehicleId: string) => {
     return await fetcher.delete(`vehicle/${vehicleId}`).json();
 }
+
+export const editVehicle = async (formData: FormData,vehicleId :string) => {
+    return await fetcher.put(`vehicle/${vehicleId}`, { body: formData }).json();
+}

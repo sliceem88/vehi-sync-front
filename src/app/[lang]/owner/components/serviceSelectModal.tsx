@@ -3,7 +3,7 @@ import { Modal, ModalBody, ModalContent, ModalFooter, ModalHeader } from "@herou
 import { Button, useDisclosure } from "@heroui/react";
 import React from 'react';
 
-import { assignOwnerToServiceAction } from "@/actions/servicesAction";
+import { assignOwnerToServiceAction } from "@/actions/serviceRequestAction";
 import { useClickHandle } from "@/lib/hooks/useClickHandle";
 import { ServiceUserType } from "@/types/user";
 
