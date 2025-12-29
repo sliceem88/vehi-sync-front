@@ -1,7 +1,9 @@
+import { VehicleTypeKey } from "@/types/constants";
+
 export type Vehicle = {
     id: string;
     name: string;
-    type: string;
+    type: VehicleTypeKey;
     description: string;
     images: { fileName: string};
     additionalInfo: any | null;

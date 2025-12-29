@@ -7,26 +7,26 @@ import React from 'react';
 
 import LogOutButton from "@/components/logoutButton/logOutButton";
 import PwaButton from "@/components/pwaButton/pwaButton";
-import { getLocale } from "@/lib/helpers/lang";
+import { useLocale } from "@/lib/hooks/useLocale";
 import { GeneralDictionaryType } from "@/types/dictionary";
 import { BasicUser } from "@/types/user";
 
 const menuOptions: Record<string, {key:string, url: string}[]> = {
     "owner": [
-        { 'key': 'vehicles', 'url': '/owner/vehicles' },
-        { 'key': 'services', 'url': '/owner/services' },
+        { 'key': 'vehicles', 'url': 'owner/vehicles' },
+        { 'key': 'services', 'url': 'owner/services' },
     ],
     "service": [
-        { 'key': 'mechanics', 'url': '/service/mechanics' },
-        { 'key': 'owners', 'url': '/service/owners' },
+        { 'key': 'mechanics', 'url': 'service/mechanics' },
+        { 'key': 'owners', 'url': 'service/owners' },
     ],
     "mechanic": [
-        { 'key': 'vehicles', 'url': '/mechanic/vehicles' },
-        { 'key': 'services', 'url': '/mechanic/services' },
+        { 'key': 'vehicles', 'url': 'mechanic/vehicles' },
+        { 'key': 'services', 'url': 'mechanic/services' },
     ],
     "operator": [
-        { 'key': 'owner', 'url': '/operator/owners' },
-        { 'key': 'vehicles', 'url': '/operator/vehicles' },
+        { 'key': 'owner', 'url': 'operator/owners' },
+        { 'key': 'vehicles', 'url': 'operator/vehicles' },
     ]
 }
 
@@ -34,7 +34,7 @@ const TopNavigation = ({ lang, user, dictionary }: { lang: string, user: BasicUs
     // TODO: fix typing
     // @ts-ignore
     const menuItems = menuOptions[user?.userType] ?? [];
-    const locale = getLocale();
+    const locale = useLocale();
 
     return (
         <Navbar isBordered isBlurred={ false }>
@@ -48,7 +48,7 @@ const TopNavigation = ({ lang, user, dictionary }: { lang: string, user: BasicUs
             </NavbarContent>
             <NavbarContent className="hidden sm:flex gap-4" justify="center">
                 { menuItems?.map(menuItem => <NavbarItem key={ menuItem.key }>
-                    <Link href={ `${locale}${menuItem.url}` }>
+                    <Link href={ `/${locale}/${menuItem.url}` }>
                         { dictionary.menu[menuItem.key as keyof typeof dictionary.menu] }
                     </Link>
                 </NavbarItem>) }

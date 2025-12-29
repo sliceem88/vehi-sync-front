@@ -1,0 +1,50 @@
+{
+  "page": "owner/vehicle",
+  "content": {
+    "vehicleTypes": {
+      "velo": "Bicycle",
+      "moto": "Motorcycle",
+      "light": "Light Vehicle",
+      "heavy": "Heavy Vehicle",
+      "tractor": "Tractor",
+      "trailer": "Trailer"
+    },
+    "deleteModal": {
+      "deleteTooltip": "Delete vehicle"
+    },
+    "editModal": {
+      "tooltip": "Edit vehicle",
+      "heading": "Edit Vehicle",
+      "namePlaceholder": "Enter new name",
+      "name": "Name",
+      "typePlaceholder": "Enter new type",
+      "type": "Type",
+      "datePlaceholder": "Enter new date",
+      "date": "Date",
+      "descriptionPlaceholder": "Enter new description",
+      "description": "Description",
+      "imagePlaceholder": "Add new image",
+      "image": "Image",
+      "button": "Edit vehicle",
+      "buttonCancel": "Cancel",
+      "buttonSubmit": "Submit"
+    },
+    "addModal": {
+      "tooltip": "Add vehicle",
+      "heading": "Add Vehicle",
+      "namePlaceholder": "Enter name",
+      "name": "Name",
+      "typePlaceholder": "Enter type",
+      "type": "Type",
+      "datePlaceholder": "Enter date",
+      "date": "Date",
+      "descriptionPlaceholder": "Enter description",
+      "description": "Description",
+      "imagePlaceholder": "Add image",
+      "image": "Image",
+      "button": "Add New vehicle",
+      "buttonCancel": "Cancel",
+      "buttonSubmit": "Submit"
+    }
+  }
+}

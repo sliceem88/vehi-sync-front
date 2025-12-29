@@ -6,9 +6,9 @@ import React from 'react';
 import { toast } from "sonner";
 
 import { registerAction } from "@/actions/registerAction";
-import { Constant } from "@/types/constants";
+import { AccountTypeKey, ConstantItem } from "@/types/constants";
 
-const RegisterForm = ({ accountTypes }: { accountTypes: Constant[]}) => {
+const RegisterForm = ({ accountTypes }: { accountTypes: ConstantItem<AccountTypeKey>[]}) => {
     const handleRegister = async (formData: FormData) => {
         const response = await registerAction(formData)
         
@@ -43,7 +43,6 @@ const RegisterForm = ({ accountTypes }: { accountTypes: Constant[]}) => {
                     </div>
                 </Form>
             </CardBody>
-
             <Divider />
             <CardFooter>
                 <Button type='submit' form='register_form'>Register</Button>

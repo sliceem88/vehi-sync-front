@@ -1,6 +1,6 @@
 import { fetcher } from "@/lib/fetcher";
-import { Constant } from "@/types/constants";
+import { Constants } from "@/types/constants";
 
-export const getAccountTypes = () => {
-    return fetcher.get<Constant[]>('constant/all').json();
+export const getConstants = () => {
+    return fetcher.get<Constants>('constant/all').json();
 }
