@@ -15,18 +15,22 @@ const menuOptions: Record<string, {key:string, url: string}[]> = {
     "owner": [
         { 'key': 'vehicles', 'url': 'owner/vehicles' },
         { 'key': 'services', 'url': 'owner/services' },
+        { 'key': 'profile', 'url': 'owner/profile' },
     ],
     "service": [
         { 'key': 'mechanics', 'url': 'service/mechanics' },
         { 'key': 'owners', 'url': 'service/owners' },
+        { 'key': 'profile', 'url': 'service/profile' },
     ],
     "mechanic": [
         { 'key': 'vehicles', 'url': 'mechanic/vehicles' },
         { 'key': 'services', 'url': 'mechanic/services' },
+        { 'key': 'profile', 'url': 'mechanic/profile' },
     ],
     "operator": [
         { 'key': 'owner', 'url': 'operator/owners' },
         { 'key': 'vehicles', 'url': 'operator/vehicles' },
+        { 'key': 'profile', 'url': 'operator/profile' },
     ]
 }
 

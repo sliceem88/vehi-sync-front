@@ -54,5 +54,21 @@ export type GeneralDictionaryType = {
         "vehicles": string,
         "mechanics": string
         "operators": string
+    },
+    profile: {
+        title: string,
+        description: string,
+        name: string,
+        surname: string,
+        type: string,
+        fastlink: string,
+        company: string,
+        updateButton: string,
+        userType: {
+            owner: string
+            service: string
+            operator: string
+            mechanic: string
+        }
     }
 }

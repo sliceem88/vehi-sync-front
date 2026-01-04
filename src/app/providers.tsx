@@ -1,6 +1,7 @@
 'use client'
 
 import { HeroUIProvider } from "@heroui/react";
+import { SessionProvider } from "next-auth/react";
 import { useEffect } from "react";
 
 export function Providers({ children }: { children: React.ReactNode }) {
@@ -33,7 +34,9 @@ export function Providers({ children }: { children: React.ReactNode }) {
             <link rel="manifest" href="/manifest.json" crossOrigin='use-credentials' />
             <meta name="theme-color" content="#1C2534" />
             <HeroUIProvider>
-                { children }
+                <SessionProvider>
+                    { children }
+                </SessionProvider>
             </HeroUIProvider>
         </>
     )
