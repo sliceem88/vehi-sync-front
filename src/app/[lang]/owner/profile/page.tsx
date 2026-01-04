@@ -3,10 +3,11 @@ import React from 'react';
 import { dictionaryAction } from "@/actions/dictionaryAction";
 import UpdateForm from "@/app/[lang]/owner/profile/components/updateForm";
 import { auth } from "@/auth";
+import { UsersType } from "@/lib/constants";
 
 const Page = async ({ params }: {params: Promise<{ lang: string}>}) => {
     const { lang } = await params;
-    const userProfile = await auth();
+    const userProfile = await auth() as unknown as { description: string, name: string, surname: string, userType: keyof typeof UsersType, fastLink: string };
     const { content } = await dictionaryAction(lang, 'general')
     const profileFields = content?.profile ?? '';
     const fields = [
