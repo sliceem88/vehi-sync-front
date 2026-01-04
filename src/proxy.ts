@@ -17,6 +17,8 @@ export default async function proxy(request: NextRequest) {
 
     const session = await auth();
 
+    console.log('#session#', session);
+
     if (!session && UserTypes.includes(userSegment)) {
         return NextResponse.redirect(new URL(getUrlWithLang('/login', lang), request.url));
     }

@@ -6,7 +6,24 @@
       "vehicles": "Vehicles",
       "mechanics": "Mechanics",
       "operators": "Operators",
-      "owners": "Owners"
+      "owners": "Owners",
+      "profile": "Profile"
+    },
+    "profile": {
+      "title": "Your profile info",
+      "description": "About me",
+      "name": "Name",
+      "surname": "Surname",
+      "type": "Account Type",
+      "fastlink": "Fastlink to connect your profile",
+      "company": "Company name",
+      "updateButton": "Update",
+      "userType": {
+        "owner": "Vehicle Owner",
+        "service": "Service owner",
+        "operator": "Operator",
+        "mechanic": "Service mechanic"
+      }
     }
   }
 }

@@ -30,3 +30,10 @@ export type OperatorUserType = {
 export type MechanicUserType = {
     type: UserType.SERVICE
 } & BasicUser
+
+export type UserUpdateFieldsType = {
+    name: string
+    value: any
+    isDisabled: boolean
+    fieldName: string
+}

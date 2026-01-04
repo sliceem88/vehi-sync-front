@@ -7,3 +7,7 @@ export const getUser = () => {
 export const register = async (data: { email: string, password: string, type: string}) => {
     return await fetcher.post('user/register', { json: data }).json();
 }
+
+export const updateProfile = async (data: FormData) => {
+    return await fetcher.put('user', { body: data }).json();
+}
