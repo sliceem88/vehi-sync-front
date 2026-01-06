@@ -22,8 +22,8 @@ export default async function OwnerVehiclePage({ params }: {params: Promise<{lan
                     <CreateVehicleModal dictionary={ content } />
                 </div>
                 <div className=''>
-                    <h2 className="text-2xl/7 font-bold pb-5">My vehicles</h2>
-                    <div className="flex vehicle-group gap-5 flex-wrap justify-around">
+                    <h2 className="text-2xl/7 font-bold pb-5 text-center">My vehicles</h2>
+                    <div className="flex vehicle-group flex-wrap justify-around ml-2.5">
                         { vehicles.map((vehicle) => <VehicleCard key={ vehicle.id } vehicle={ vehicle } dictionary={ content.vehicleTypes }/>) }
                     </div>
                 </div>
