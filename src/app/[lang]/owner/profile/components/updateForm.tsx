@@ -2,7 +2,6 @@
 
 import { Button, Input } from "@heroui/react";
 import Form from "next/form";
-import { useSession } from "next-auth/react";
 import React from 'react';
 
 import { updateUserProfile } from "@/actions/usersAction";
@@ -22,7 +21,6 @@ type ProfileFieldsDictionary = {
 
 const UpdateForm = ({ fields, dictionary }: { fields: UserUpdateFieldsType[], dictionary: ProfileFieldsDictionary }) => {
     const { clickHandle } = useClickHandle();
-    const { update } = useSession();
 
     const handleFormAction = async (formData: FormData) => {
         const updatedUser = await clickHandle(() => updateUserProfile(formData))

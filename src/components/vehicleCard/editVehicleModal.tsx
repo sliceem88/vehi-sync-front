@@ -13,15 +13,15 @@ import { useClickHandle } from "@/lib/hooks/useClickHandle";
 import { useDictionary } from "@/lib/hooks/useDictionary";
 import { Vehicle } from "@/types/vehicle";
 
-const EditVehicleModal = ({ vehicle }: { vehicle: Vehicle}) => {
-    const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
+const EditVehicleModal = ({ vehicle, isModalOpen = false, handleClick }: { vehicle: Vehicle, isModalOpen?: boolean, handleClick: () => void }) => {
+    const { isOpen, onOpen, onOpenChange } = useDisclosure({ isOpen: isModalOpen });
     const router = useRouter();
     const { clickHandle } = useClickHandle();
     const dictionary = useDictionary('owner/vehicles');
 
     const handleFormAction = async (formData: FormData) => {
         await clickHandle(() => editVehicleAction(formData, vehicle.id));
-        onClose()
+        handleClick();
         router.refresh()
     }
 
@@ -32,9 +32,9 @@ const EditVehicleModal = ({ vehicle }: { vehicle: Vehicle}) => {
                     <Pencil />
                 </Button>
             </Tooltip>
-            <Modal isOpen={ isOpen } onOpenChange={ onOpenChange }>
+            <Modal isOpen={ isOpen } onOpenChange={ onOpenChange } onClose={ () => handleClick() }>
                 <ModalContent>
-                    { (onClose) => (
+                    { () => (
                         <>
                             <ModalHeader className="flex flex-col gap-1">{ dictionary?.editModal?.heading }</ModalHeader>
                             <ModalBody>
@@ -43,7 +43,7 @@ const EditVehicleModal = ({ vehicle }: { vehicle: Vehicle}) => {
                                 </Form>
                             </ModalBody>
                             <ModalFooter>
-                                <Button color="danger" variant="light" onPress={ onClose }>
+                                <Button color="danger" variant="light" onPress={ handleClick }>
                                     { dictionary?.editModal?.buttonCancel }
                                 </Button>
                                 <Button color="primary" type='submit' form='edit-vehicle'>

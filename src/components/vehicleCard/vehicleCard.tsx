@@ -1,7 +1,9 @@
+'use client';
+
 import './style.scss'
 
 import Image from "next/image";
-import React from 'react';
+import React, { useState } from 'react';
 
 import DeleteVehicle from "@/components/vehicleCard/deleteVehicle";
 import EditVehicleModal from "@/components/vehicleCard/editVehicleModal";
@@ -17,12 +19,15 @@ const VehicleCard = ({ vehicle, dictionary }: { vehicle: Vehicle, dictionary: { 
         images,
         year,
     } = vehicle;
+    const [modalClick, setModalClick] = useState(false);
+
+    const handleClick = () => setModalClick(prevState => !prevState);
 
     return (
-        <div className="VehicleCard">
+        <div className="VehicleCard" onClick={ () => setModalClick(true) }>
             <div className="VehicleCard-Actions">
                 <DeleteVehicle vehicleId={ vehicle.id } />
-                <EditVehicleModal vehicle={ vehicle } />
+                <EditVehicleModal vehicle={ vehicle } isModalOpen={ modalClick } handleClick={ () => handleClick() }/>
             </div>
             { images?.fileName && <Image
                 width={ 200 }
@@ -31,7 +36,7 @@ const VehicleCard = ({ vehicle, dictionary }: { vehicle: Vehicle, dictionary: { 
                 alt={ name ?? images.fileName }
                 className="w-full h-48 object-cover"
             /> }
-            <div className="flex flex-col items-start p-4 gap-1 bg-gray-50">
+            <div className="flex flex-col items-start p-4 gap-1 bg-gray-50 rounded-t-[5px]">
                 <h3 className={ ` ${!images?.fileName ? 'pt-8' : ''} text-lg font-semibold text-gray-900` }>{ name }</h3>
                 <p className="text-sm text-gray-500">{ dictionary[type] }</p>
                 <p className="text-xs text-gray-400">{ new Date(year).getFullYear() }</p>
