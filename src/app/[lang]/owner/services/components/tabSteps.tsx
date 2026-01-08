@@ -3,6 +3,7 @@
 import { Textarea } from "@heroui/input";
 import { Button } from "@heroui/react";
 import { Tab, Tabs } from "@heroui/tabs";
+import { Key } from "@react-types/shared";
 import { Car, NotebookPen, Wrench } from "lucide-react";
 import React, { useState } from 'react';
 
@@ -23,7 +24,7 @@ const TabSteps = (
     const [vehicleId, setVehicleId] = useState<string>();
     const [serviceId, setServiceId] = useState<string>();
     const [comment, setComment] = useState<string>();
-    const [selected, setSelected] = useState<string>();
+    const [selected, setSelected] = useState<Key>();
 
     const disabledKeys = !vehicleId ? ['2', '3'] : [];
     const disabledButtons = Boolean(vehicleId) && Boolean(serviceId);
@@ -37,7 +38,6 @@ const TabSteps = (
     const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (event) => {
         event.preventDefault();
         await clickHandle(() => assignOwnerToServiceAction(serviceId!, vehicleId!, comment!))
-        console.log('###', vehicleId, serviceId, comment);
         handleReset();
     }
 

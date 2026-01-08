@@ -16,7 +16,7 @@ import { Vehicle } from "@/types/vehicle";
 const ModalFields = ({ vehicle, dictionaryModal }: { vehicle?: Vehicle, dictionaryModal?: OwnerVehicleModalDictionaryType}) => {
     const [vehicleTypes, setVehicleTypes] = useState< ConstantItem<VehicleTypeKey>[] | null>(null);
     const dictionary = useDictionary('owner/vehicles');
-    const [selectedType, setSelectedType] = React.useState<VehicleTypeKey | null>(
+    const [selectedType, setSelectedType] = useState<VehicleTypeKey | null>(
         vehicle?.type ?? null
     );
     useEffect(() => {
