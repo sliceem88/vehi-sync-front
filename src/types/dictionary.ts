@@ -4,7 +4,8 @@ export type DictionaryMap = {
     '': DashboardContentType,
     'connect': ConnectDictionaryType,
     'general': GeneralDictionaryType,
-    'owner/vehicles': OwnerVehicleDictionaryType
+    'owner/vehicles': OwnerVehicleDictionaryType,
+    'owner/service': OwnerServiceDictionaryType
 }
 
 export type DictionaryBasicType<T> = {
@@ -17,6 +18,19 @@ export type DashboardContentType = {}
 export type ConnectDictionaryType = {
     connectRequestText: string
     alreadyConnectedText: string
+}
+
+export type OwnerServiceDictionaryType = {
+    tabs: {
+        step1: string
+        step1Info: string
+        step2: string
+        step2Info: string
+        step3: string
+        step3Info: string
+        resetButton: string
+        submitButton: string
+    }
 }
 
 export type OwnerVehicleDictionaryType = {
