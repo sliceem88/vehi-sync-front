@@ -32,6 +32,7 @@ const TabSteps = (
     const handleReset = () => {
         setVehicleId(undefined);
         setServiceId(undefined);
+        setComment(undefined);
         setSelected('1')
     }
 
