@@ -1,0 +1,15 @@
+{
+  "page": "owner/service",
+  "content": {
+    "tabs": {
+      "step1": "Vehicle",
+      "step1Info": "Select vehicle to send to service",
+      "step2": "Service",
+      "step2Info": "Select service to request for a job",
+      "step3": "Comment",
+      "step3Info": "Add comments about vehicle job, or any extra info",
+      "resetButton": "Reset",
+      "submitButton": "Submit"
+    }
+  }
+}
