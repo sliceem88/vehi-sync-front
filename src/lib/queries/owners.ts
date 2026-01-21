@@ -1,6 +1,6 @@
 import { fetcher } from "@/lib/fetcher";
-import { OwnerUserType } from "@/types/user";
+import { ServiceRequestType } from "@/types/serviceRequest";
 
-export const getServiceAssignedOwners = async () => {
-    return await fetcher.get<OwnerUserType[]>('owner/service').json()
+export const getOwnerAssignedOrRequestedVehicleWithOwner = async () => {
+    return await fetcher.get<ServiceRequestType[]>('service/owner').json()
 }

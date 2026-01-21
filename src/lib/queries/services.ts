@@ -1,4 +1,5 @@
 import { fetcher } from "@/lib/fetcher";
+import { ServiceRequestStatusType, ServiceRequestType } from "@/types/serviceRequest";
 import { MechanicUserType, ServiceUserType } from "@/types/user";
 
 export const getAllServices = async () => {
@@ -9,8 +10,9 @@ export const getAllServices = async () => {
 //     return await fetcher.post<ServiceUserType>(`service/owner/${serviceId}`).json()
 // }
 
-export const getUserAssignedServices = async () => {
-    return await fetcher.get<ServiceUserType[]>('service/owner').json()
+// TODO: move to owner query??
+export const getOwnerAssignedOrRequestedServices = async () => {
+    return await fetcher.get<ServiceRequestType[]>('owner/service').json()
 }
 
 export const deleteAssignedService = async (serviceId: string) => {
@@ -23,4 +25,8 @@ export const getServiceMechanics = async () => {
 
 export const addMechanicToService = async (formData: FormData) => {
     return await fetcher.post<MechanicUserType>('service/mechanic', { body: formData }).json()
+}
+
+export const createServiceRespond = async (serviceRequestId: string, comment: string, status: ServiceRequestStatusType) => {
+    return await fetcher.post<MechanicUserType>(`service/owner/${serviceRequestId}`, { json: { comment, status } }).json()
 }

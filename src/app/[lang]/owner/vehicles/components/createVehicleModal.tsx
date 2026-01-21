@@ -20,7 +20,6 @@ const CreateVehicleModal = ({ dictionary }: {dictionary: OwnerVehicleDictionaryT
     const { clickHandle } = useClickHandle();
 
     const handleFormAction = async (formData: FormData) => {
-        console.log('###', formData.entries().forEach((item) => console.log('###', item)));
         await clickHandle(() => createVehicleAction(formData));
         onClose()
         router.refresh()

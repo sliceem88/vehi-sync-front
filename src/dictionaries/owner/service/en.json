@@ -1,5 +1,5 @@
 {
-  "page": "owner/service",
+  "page": "service/owners",
   "content": {
     "tabs": {
       "step1": "Vehicle",

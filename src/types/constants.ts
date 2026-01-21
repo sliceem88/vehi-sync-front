@@ -1,6 +1,11 @@
 export type Constants = {
     accountTypes: ConstantItem<AccountTypeKey>[]
     vehicleTypes: ConstantItem<VehicleTypeKey>[]
+    "serviceRequestStatus": [
+        "pending",
+        "approved",
+        "declined"
+    ]
 }
 
 export type AccountTypeKey =

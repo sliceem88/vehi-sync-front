@@ -3,8 +3,7 @@ import { Card, CardBody } from "@heroui/react";
 import MechanicAddModal from "@/app/[lang]/service/components/mechanicAddModal";
 import { UserType } from "@/lib/constants";
 import { validUserTypeForPage } from "@/lib/helpers/userType";
-import { getServiceAssignedOwners } from "@/lib/queries/owners";
-import { getServiceMechanics } from "@/lib/queries/services";
+import { getOwnerAssignedOrRequestedServices, getServiceMechanics } from "@/lib/queries/services";
 
 export const dynamic = 'force-dynamic';
 export const revalidate = 0;
@@ -12,7 +11,7 @@ export const revalidate = 0;
 export default async function ServicePage() {
     await validUserTypeForPage(UserType.SERVICE)
 
-    const vehicleOwners = await getServiceAssignedOwners()
+    const vehicleOwners = await getOwnerAssignedOrRequestedServices()
     const myMechanics = await getServiceMechanics()
 
     return (
