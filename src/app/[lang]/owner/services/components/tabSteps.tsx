@@ -15,10 +15,11 @@ import { Vehicle } from "@/types/vehicle";
 
 import SmallServiceCard from "./smallServiceCard";
 import SmallVehicleCard from "./smallVehicleCard";
+import {InActionServiceItemsType} from "@/types/serviceRequest";
 
 const TabSteps = (
-    { services, vehicles, dictionary }:
-    {services: ServiceUserType[], vehicles: Vehicle[], dictionary: OwnerServiceDictionaryType}
+    { services, vehicles, dictionary, inActiveItems }:
+    {services: ServiceUserType[], vehicles: Vehicle[], dictionary: OwnerServiceDictionaryType, inActiveItems: InActionServiceItemsType}
 ) => {
     const { clickHandle } = useClickHandle();
     const [vehicleId, setVehicleId] = useState<string>();
@@ -65,7 +66,11 @@ const TabSteps = (
                     >
                         <p>{ dictionary?.tabs?.step1Info }</p>
                         <div className='flex gap-2 flex-wrap'>
-                            { vehicles.map((vehicle: Vehicle) => <SmallVehicleCard key={ vehicle.id } vehicle={ vehicle } selectedVehicleId={ vehicleId } handler={ setVehicleId }/>) }
+                            { vehicles.map((vehicle: Vehicle) => {
+                                const isDisabled = inActiveItems.vehicleIds.includes(vehicle.id);
+
+                                return <SmallVehicleCard key={ vehicle.id } vehicle={ vehicle } selectedVehicleId={ vehicleId } handler={ setVehicleId } isDisabled={ isDisabled }/>
+                            }) }
                         </div>
                     </Tab>
                     <Tab
@@ -79,7 +84,11 @@ const TabSteps = (
                     >
                         <p>{ dictionary?.tabs?.step2Info }</p>
                         <div className='flex gap-2 flex-wrap'>
-                            { services.map((service: ServiceUserType) => <SmallServiceCard key={ service.id } service={ service } selectedServiceId={ serviceId } handler={ setServiceId }/>) }
+                            { services.map((service: ServiceUserType) => {
+                                const isDisabled = inActiveItems.serviceIds.includes(service.id);
+
+                                return <SmallServiceCard key={ service.id } service={ service } selectedServiceId={ serviceId } handler={ setServiceId } isDisabled={ isDisabled }/>
+                            }) }
                         </div>
                     </Tab>
                     <Tab

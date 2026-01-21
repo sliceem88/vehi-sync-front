@@ -1,3 +1,5 @@
+import { ServiceRequestStatusType } from "@/types/serviceRequest";
+
 export enum UserType {
     OPERATOR = 'operator',
     OWNER = 'owner',
@@ -13,3 +15,12 @@ export const UsersType = {
     service: 'Service',
     mechanic: 'Mechanic',
 }
+
+export const ServiceRequestStatus: {
+    key: ServiceRequestStatusType;
+    value: ServiceRequestStatusType;
+}[] = [
+    { key: "pending", value: "pending" },
+    { key: "approved", value: "approved" },
+    { key: "declined", value: "declined" }
+];

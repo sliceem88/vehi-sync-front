@@ -5,8 +5,8 @@ import React, { useState } from 'react';
 import { ServiceUserType } from "@/types/user";
 
 const SmallServiceCard = (
-    { service, selectedServiceId, handler }:
-    {service: ServiceUserType, selectedServiceId?: string, handler: (serviceId: string) => void}
+    { service, selectedServiceId, handler, isDisabled }:
+    {service: ServiceUserType, selectedServiceId?: string, handler: (serviceId: string) => void, isDisabled: boolean }
 ) => {
     const [isSelected, setIsSelected] = useState(service.id === selectedServiceId);
 
@@ -28,9 +28,9 @@ const SmallServiceCard = (
     }
 
     return (
-        <Card className="max-w-[100px] cursor-pointer" isPressable onPress={ handleClick }>
+        <Card isDisabled={ isDisabled } className="max-w-[100px] cursor-pointer" isPressable={ !isDisabled } onPress={ handleClick }>
             <CardHeader className="flex gap-3">
-                <Checkbox isSelected={ isSelected } />
+                { !isDisabled ? <Checkbox isSelected={ isSelected } /> : null }
                 { isSelected && <Input value={ service.id } name='serviceId' className='hidden' /> }
                 <div className="flex flex-col">
                     <p className="text-md">{ service.companyName }</p>

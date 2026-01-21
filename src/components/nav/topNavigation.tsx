@@ -16,11 +16,13 @@ const menuOptions: Record<string, {key:string, url: string}[]> = {
         { 'key': 'vehicles', 'url': 'owner/vehicles' },
         { 'key': 'services', 'url': 'owner/services' },
         { 'key': 'profile', 'url': 'owner/profile' },
+        { 'key': 'dashboard', 'url': 'owner' },
     ],
     "service": [
         { 'key': 'mechanics', 'url': 'service/mechanics' },
         { 'key': 'owners', 'url': 'service/owners' },
         { 'key': 'profile', 'url': 'service/profile' },
+        { 'key': 'dashboard', 'url': 'service' },
     ],
     "mechanic": [
         { 'key': 'vehicles', 'url': 'mechanic/vehicles' },

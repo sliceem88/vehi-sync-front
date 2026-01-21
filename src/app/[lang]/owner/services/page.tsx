@@ -5,8 +5,9 @@ export const revalidate = 0;
 
 import { UserType } from "@/lib/constants";
 import { validUserTypeForPage } from "@/lib/helpers/userType";
-import { getAllServices, getUserAssignedServices } from "@/lib/queries/services";
+import { getAllServices, getOwnerAssignedOrRequestedServices } from "@/lib/queries/services";
 import { getMyVehicles } from "@/lib/queries/vehicle";
+import { InActionServiceItemsType } from "@/types/serviceRequest";
 
 import TabSteps from "./components/tabSteps";
 
@@ -15,19 +16,19 @@ const ServiceAssignPage = async({ params }: { params: Promise<{ lang: string}>})
 
     const { lang } = await params;
     const services = await getAllServices();
-    const myServices = await getUserAssignedServices();
+    const requestedAssignedServices = await getOwnerAssignedOrRequestedServices();
     const vehicles = await getMyVehicles();
     const { content } = await dictionaryAction(lang, 'owner/service');
+    const inActiveItems = requestedAssignedServices.reduce((acc: InActionServiceItemsType, requestedAssignedService) => {
+        acc.vehicleIds.push(requestedAssignedService.vehicleId);
+        acc.serviceIds.push(requestedAssignedService.serviceId);
+
+        return acc;
+    }, { vehicleIds: [], serviceIds: [] });
 
     return (
-        <div className="flex justify-center gap-4 xl:gap-6 pt-3 px-4 lg:px-0 flex-wrap xl:flex-nowrap sm:pt-10 max-w-[90rem] mx-auto w-full">
-            { /*<Services services={ services } title='Services to select' modal={ ServiceSelectModal }/>*/ }
-            { /*<Card>*/ }
-            { /*    <CardBody>*/ }
-            { /*        <Services services={ myServices } title='My services' modal={ ServiceDeleteModal }/>*/ }
-            { /*    </CardBody>*/ }
-            { /*</Card>*/ }
-            <TabSteps services={ services } vehicles={ vehicles } dictionary={ content } />
+        <div className="flex justify-center gap-4 xl:gap-6 pt-3 px-4 lg:px-0 flex-wrap xl:flex-nowrap sm:pt-10 max-w-360 mx-auto w-full">
+            <TabSteps services={ services } vehicles={ vehicles } dictionary={ content } inActiveItems={ inActiveItems }/>
         </div>
     );
 }

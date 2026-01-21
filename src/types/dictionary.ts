@@ -5,7 +5,31 @@ export type DictionaryMap = {
     'connect': ConnectDictionaryType,
     'general': GeneralDictionaryType,
     'owner/vehicles': OwnerVehicleDictionaryType,
-    'owner/service': OwnerServiceDictionaryType
+    'owner/service': OwnerServiceDictionaryType,
+    'service/owners': ServiceOwnerDictionaryType
+}
+
+export type ServiceOwnerDictionaryType = {
+    status: string
+    requestCard: {
+        ownerComment: string
+        vehicleData: string
+        vehicleType: string
+    }
+    modal: {
+        title: string
+        comment: string
+        status: string
+        submitButton: string
+        cancelButton: string
+        statuses: {
+            approved: string
+            declined: string
+            pending: string
+        }
+        statusError: string
+        toastMessage: string
+    }
 }
 
 export type DictionaryBasicType<T> = {
@@ -84,5 +108,10 @@ export type GeneralDictionaryType = {
             operator: string
             mechanic: string
         }
+    }
+    serviceRequestStatus: {
+        pending: string,
+        approved: string
+        declined: string
     }
 }

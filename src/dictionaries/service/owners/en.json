@@ -1,0 +1,25 @@
+{
+  "page": "owner/service",
+  "content": {
+    "status": "Status",
+    "requestCard": {
+      "ownerComment": "Comment from vehicle owner",
+      "vehicleData": "Vehicle data",
+      "vehicleType": "Vehicle type"
+    },
+    "modal": {
+      "title": "Respond to vehicle owner",
+      "comment": "Your comment",
+      "status": "Available Statuses",
+      "statuses": {
+        "approved": "Approve",
+        "declined": "Decline",
+        "pending": "Pending"
+      },
+      "cancelButton": "Cancel",
+      "submitButton": "Submit",
+      "statusError": "Same status already set"
+    },
+    "toastMessage": "Service request was updated successfully"
+  }
+}

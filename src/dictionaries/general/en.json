@@ -7,7 +7,8 @@
       "mechanics": "Mechanics",
       "operators": "Operators",
       "owners": "Owners",
-      "profile": "Profile"
+      "profile": "Profile",
+      "dashboard": "Dashboard"
     },
     "profile": {
       "title": "Your profile info",
@@ -24,6 +25,11 @@
         "operator": "Operator",
         "mechanic": "Service mechanic"
       }
+    },
+    "serviceRequestStatus": {
+      "pending": "Waiting for service Decision",
+      "approved": "Service Approved connection",
+      "declined": "service Declined connection"
     }
   }
 }

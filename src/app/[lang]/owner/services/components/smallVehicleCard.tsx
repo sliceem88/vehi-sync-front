@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 
 import { Vehicle } from "@/types/vehicle";
 
-const SmallVehicleCard = ({ vehicle, handler, selectedVehicleId }: {vehicle: Vehicle, handler: (vehicleId: string) => void, selectedVehicleId?: string}) => {
+const SmallVehicleCard = ({ vehicle, handler, selectedVehicleId, isDisabled }: {vehicle: Vehicle, handler: (vehicleId: string) => void, selectedVehicleId?: string, isDisabled: boolean}) => {
     const [isSelected, setIsSelected] = useState(vehicle.id === selectedVehicleId);
 
     const handleClick = () => {
@@ -24,9 +24,9 @@ const SmallVehicleCard = ({ vehicle, handler, selectedVehicleId }: {vehicle: Veh
         //     return;
     }
     return (
-        <Card className="max-w-[100px] cursor-pointer" isPressable onPress={ handleClick }>
+        <Card isDisabled={ isDisabled } className="max-w-[100px] cursor-pointer" isPressable={ !isDisabled } onPress={ handleClick }>
             <CardHeader className="flex gap-3">
-                <Checkbox isSelected={ isSelected } />
+                { !isDisabled ? <Checkbox isSelected={ isSelected } /> : null }
                 { isSelected && <Input value={ vehicle.id } name='vehicleId' className='hidden' /> }
                 <div className="flex flex-col">
                     <p className="text-md">{ vehicle.name }</p>
