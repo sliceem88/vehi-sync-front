@@ -1,0 +1,16 @@
+{
+  "page": "service/jobs",
+  "content": {
+    "createForm": {
+      "createButton": "Create new Job",
+      "cancelButton": "Cancel",
+      "submitButton": "Submit",
+      "title": "Create new Job",
+      "tabs": {
+        "vehicles": "Vehicles",
+        "mechanics": "Mechanics",
+        "info": "Information"
+      }
+    }
+  }
+}

@@ -1,0 +1,88 @@
+.Menu {
+  &-Item {
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 3px;
+    transition: padding-left 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+      padding-left: 10px;
+      background-color: #ededed;
+    }
+
+    &__active {
+      background-color: #cccccc;
+
+      &:hover {
+        background-color: #cccccc;
+      }
+    }
+  }
+
+  &-LogOut {
+    border: 1px solid black;
+  }
+
+  &-Burger {
+    width: 20px;
+    height: 30px;
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+    margin-right: -10px;
+    background-color: white;
+
+    @media(min-width: 764px) {
+      display: none;
+    }
+  }
+
+  &-Burger__bar {
+    height: 2px;
+    width: 20px;
+    background-color: #000;
+    border-radius: 10px;
+    position: absolute;
+    transition: 0.4s ease;
+  }
+
+  &-Burger__bar:nth-child(1) {
+    top: 8px;
+  }
+
+  &-Burger__bar:nth-child(2) {
+    top: 16px;
+  }
+
+  &-Burger__bar:nth-child(3) {
+    top: 24px;
+  }
+
+  &-Burger:hover &-Burger__bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  &-Burger:hover &-Burger__bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  &-Burger:hover &-Burger__bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+@keyframes rotateR {
+  from { transform: translateY(0) rotate(0); }
+  to   { transform: translateY(10px) rotate(45deg); }
+}
+
+@keyframes rotateL {
+  from { transform: translateY(0) rotate(0); }
+  to   { transform: translateY(-10px) rotate(-45deg); }
+}
+
+@keyframes fade {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
