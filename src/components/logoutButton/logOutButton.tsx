@@ -7,8 +7,8 @@ import React from 'react';
 // TODO: convert to server components
 const LogOutButton = () => {
     return (
-        <Button onPress={ () => signOut({ redirectTo: "/" }) }>
-            Logout
+        <Button className='w-full' onPress={ () => signOut({ redirectTo: "/" }) }>
+               Logout
         </Button>
     );
 };

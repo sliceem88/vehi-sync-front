@@ -6,7 +6,22 @@ export type DictionaryMap = {
     'general': GeneralDictionaryType,
     'owner/vehicles': OwnerVehicleDictionaryType,
     'owner/service': OwnerServiceDictionaryType,
-    'service/owners': ServiceOwnerDictionaryType
+    'service/owners': ServiceOwnerDictionaryType,
+    'service/jobs': ServiceJobsType
+}
+
+export type ServiceJobsType = {
+    createForm: {
+        title: string,
+        createButton: string
+        cancelButton: string
+        submitButton: string
+        tabs: {
+            vehicles: string
+            mechanics: string
+            info: string
+        }
+    }
 }
 
 export type ServiceOwnerDictionaryType = {
@@ -88,10 +103,14 @@ export type OwnerVehicleModalDictionaryType = {
 
 export type GeneralDictionaryType = {
     menu: {
-        "services": string
-        "vehicles": string,
-        "mechanics": string
-        "operators": string
+        services: string
+        vehicles: string,
+        mechanics: string
+        operators: string
+        owners: string
+        profile: string
+        dashboard: string
+        jobs: string
     },
     profile: {
         title: string,

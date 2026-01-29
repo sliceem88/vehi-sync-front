@@ -30,3 +30,7 @@ export const addMechanicToService = async (formData: FormData) => {
 export const createServiceRespond = async (serviceRequestId: string, comment: string, status: ServiceRequestStatusType) => {
     return await fetcher.post<MechanicUserType>(`service/owner/${serviceRequestId}`, { json: { comment, status } }).json()
 }
+
+export const getVehicleForJobs = async () => {
+    return await fetcher.get<MechanicUserType[]>('service/vehicle').json()
+}
