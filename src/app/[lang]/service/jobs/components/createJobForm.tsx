@@ -7,10 +7,8 @@ import { SquarePlus } from "lucide-react";
 import React from 'react';
 
 import { useDictionary } from "@/lib/hooks/useDictionary";
-import { MechanicUserType } from "@/types/user";
-import { Vehicle } from "@/types/vehicle";
 
-const CreateJobForm = ({ vehicles, mechanics }: { vehicles: Vehicle, mechanics: MechanicUserType[]}) => {
+const CreateJobForm = () => {
     const dictionary = useDictionary('service/jobs');
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
 

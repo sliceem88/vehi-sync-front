@@ -10,7 +10,7 @@ const JobsPage = async () => {
 
     return (
         <div className="flex p-4 flex-wrap w-full">
-            <CreateJobForm mechanics={ mechanics } vehicles={ vehiclesForJob }/>
+            <CreateJobForm />
         </div>
     );
 };
