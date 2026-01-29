@@ -16,11 +16,30 @@ export type ServiceJobsType = {
         createButton: string
         cancelButton: string
         submitButton: string
-        tabs: {
-            vehicles: string
-            mechanics: string
-            info: string
+        newOwner: string
+        jobDate: string
+        ownerSelect: string
+        ownerSelectPlaceholder: string
+        vehicleSelect: string
+        vehicleSelectPlaceholder: string
+        addVehicle: string
+        statuses: {
+            title: string
+            inProgress: string
+            onHold: string
+            completed: string
+            new: string
         }
+        "taskDescription": string
+        "taskDescriptionPlaceholder": string
+        "mechanicSelect": string
+        "mechanicSelectPlaceholder": string
+    }
+    pendingForm: {
+        heading: string
+    }
+    finishedForm: {
+        heading: string
     }
 }
 

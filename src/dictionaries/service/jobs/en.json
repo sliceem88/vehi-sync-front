@@ -6,11 +6,30 @@
       "cancelButton": "Cancel",
       "submitButton": "Submit",
       "title": "Create new Job",
-      "tabs": {
-        "vehicles": "Vehicles",
-        "mechanics": "Mechanics",
-        "info": "Information"
-      }
+      "newOwner": "Add Vehicle Owner",
+      "jobDate": "Job Date",
+      "ownerSelect": "Owner Select",
+      "ownerSelectPlaceholder": "Search owner by e-mail",
+      "vehicleSelect": "Owner vehicle",
+      "vehicleSelectPlaceholder": "Select vehicle Owner",
+      "addVehicle": "Add owner vehicle",
+      "statuses": {
+        "title": "Select JOB status",
+        "inProgress": "In Progress",
+        "onHold": "On Hold",
+        "completed": "Completed",
+        "new": "New"
+      },
+      "taskDescription": "Task description",
+      "taskDescriptionPlaceholder": "Task description",
+      "mechanicSelect": "Mechanics List",
+      "mechanicSelectPlaceholder": "Select mechanic"
+    },
+    "pendingForm": {
+      "heading": "Pending jobs"
+    },
+    "finishedForm": {
+      "heading": "Finished Jobs"
     }
   }
 }
