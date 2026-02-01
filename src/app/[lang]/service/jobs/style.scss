@@ -1,0 +1,13 @@
+.Link {
+  &-Button {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+    height: 40px;
+
+    &:hover {
+      background-color: #ededed;
+    }
+  }
+}

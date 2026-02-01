@@ -14,15 +14,15 @@ const MainLayout = async ({ children, params }: {children: React.ReactNode, para
     const { content } = await dictionaryAction(lang, 'general');
 
     return (
-        <div className="flex flex-row">
+        <div className="flex flex-row h-full">
             <RegisterSW />
             <Sidebar lang={ lang } user={ user } dictionary={ content }/>
             <section className="w-full">
                 { /*<TopNavigation lang={ lang } user={ user } dictionary={ content }/>*/ }
                 { children }
-                <div className='pb-3 pt-3 fixed bottom-0 left-0 w-full ml-[200px] border-t-1'>
+                <footer className='pb-3 pt-3 fixed bottom-0 left-0 w-full ml-[200px] border-t-1'>
                     { user && <QrBarCode fastLink={ user.fastLink }/> }
-                </div>
+                </footer>
             </section>
         </div>
     );
