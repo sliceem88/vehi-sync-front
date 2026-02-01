@@ -30,6 +30,16 @@
     },
     "finishedForm": {
       "heading": "Finished Jobs"
+    },
+    "createOwnerForm": {
+      "title": "Create Owner",
+      "cancelButton": "Cancel",
+      "submitButton": "Create",
+      "email": "Email",
+      "emailPlaceholder": "Enter owner email",
+      "emailMinCharMessage": "Minimum 8 characters",
+      "toastSuccessMessage": "New vehicle owner was created",
+      "toastErrorMessage": "Owner creation error, same email, or missing parameters"
     }
   }
 }

@@ -49,7 +49,7 @@ const Sidebar = ({ lang, user, dictionary }: { lang: string, user: BasicUser | n
 
     return (
         <>
-            <aside className="h-screen pt-2 flex flex-col justify-between border-r-1 relative">
+            <aside className="h-auto pt-2 flex flex-col justify-between border-r-1 relative">
                 <div className="Menu-Burger">
                     <span className="Menu-Burger__bar"></span>
                     <span className="Menu-Burger__bar"></span>

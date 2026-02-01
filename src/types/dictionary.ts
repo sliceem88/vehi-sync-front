@@ -41,6 +41,16 @@ export type ServiceJobsType = {
     finishedForm: {
         heading: string
     }
+    createOwnerForm: {
+        title: string,
+        cancelButton: string
+        submitButton: string
+        email: string
+        emailPlaceholder: string
+        emailMinCharMessage: string
+        toastSuccessMessage: string
+        toastErrorMessage: string
+    }
 }
 
 export type ServiceOwnerDictionaryType = {
